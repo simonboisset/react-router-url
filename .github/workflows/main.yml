@@ -1,0 +1,37 @@
+name: CD
+on: push
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v2
+      - name: Use Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+          registry-url: https://registry.npmjs.org/
+      - name: Publish New Version
+        if: github.ref == 'refs/heads/main'
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: |
+          yarn
+          yarn version --new-version patch --no-git-tag-version
+          yarn publish
+          git config --local user.email "secrets.GIT_EMAIL"
+          git config --local user.name "secrets.GIT_NAME"
+          git add .
+          git commit -m "New version"
+          git push
+      - name: Checkout dev
+        uses: actions/checkout@v2
+        if: github.ref == 'refs/heads/main'
+        with:
+          ref: 'dev'
+          fetch-depth: '0'
+      - name: Rebase Dev
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git rebase remotes/origin/main
+          git push
