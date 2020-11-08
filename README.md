@@ -100,7 +100,7 @@ If a route need authentication you can add the `auth` props in router and `prote
 ```jsx
 <Page>
     <Router auth={auth} routes={[
-    { path: '/account',protected:true, component: <Acount/> },
+    { path: '/account', protected: true, component: <Acount/> },
     {
         path: '/',
         component: <Redirect to='/home'/>,
