@@ -8,14 +8,11 @@ type RouterProps = {
 };
 
 export const Router: React.FC<RouterProps> = ({ routes, auth }) => {
-  const location = useURL();
+  const { path } = useURL();
 
   const rendredRoute = (testedRoutes: Route[]): JSX.Element | null => {
     for (const route of testedRoutes) {
-      if (
-        location.pathname.includes(route.path) &&
-        !(route.protected && !auth)
-      ) {
+      if (path.includes(route.path) && !(route.protected && !auth)) {
         if (!!route.routes) {
           const subrenderedRoute = rendredRoute(route.routes);
           if (subrenderedRoute) {
