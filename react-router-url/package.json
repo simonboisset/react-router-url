@@ -39,12 +39,13 @@
   "module": "dist/react-router-url.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/simonboisset/react-router-url"
+    "url": "https://github.com/simonboisset/react-router-url",
+    "directory": "react-router-url"
   },
   "bugs": {
     "url": "https://github.com/simonboisset/react-router-url/issues"
   },
-  "homepage": "https://github.com/simonboisset/react-router-url",
+  "homepage": "https://github.com/simonboisset/react-router-url/react-router-url",
   "size-limit": [
     {
       "path": "dist/react-router-url.cjs.production.min.js",

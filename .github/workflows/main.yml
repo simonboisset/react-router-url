@@ -16,9 +16,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
+          cd react-router-url
           yarn
           yarn version --new-version patch --no-git-tag-version
           yarn publish
+          cd ../react-hook-url
+          yarn
+          yarn version --new-version patch --no-git-tag-version
+          yarn publish
+          cd ..
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
           git add .

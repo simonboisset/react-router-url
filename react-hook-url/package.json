@@ -1,0 +1,71 @@
+{
+  "version": "0.2.7",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "write": "yarn prettier --write ./src"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn write"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2,
+    "printWidth": 120
+  },
+  "name": "react-hook-url",
+  "author": "Simon Boisset",
+  "module": "dist/react-hook-url.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simonboisset/react-router-url",
+    "directory": "react-hook-url"
+  },
+  "bugs": {
+    "url": "https://github.com/simonboisset/react-router-url/issues"
+  },
+  "homepage": "https://github.com/simonboisset/react-router-url/react-hook-url",
+  "size-limit": [
+    {
+      "path": "dist/react-hook-url.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/react-hook-url.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.7.0",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "husky": "^4.3.0",
+    "prettier": "^2.1.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "size-limit": "^4.7.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.5"
+  }
+}
