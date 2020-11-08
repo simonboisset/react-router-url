@@ -4,6 +4,17 @@ A simple, flexible and zero dependencies router for react.
 It uses hooks and URL api.
 I use [TSDX](https://tsdx.io/) for packaging.
 
+# Table of Contents
+
+- [Install](#install)
+- [Get Started](#get-started)
+- [Core](#core)
+  - [history](#history)
+  - [useURL](#useurl)
+- [Components](#components)
+  - [Router](#router)
+  - [Redirect](#redirect) 
+
 # Install
 
 ```sh
@@ -14,7 +25,7 @@ yarn add react-router-url
 
 Just use the Router component where you want.
 
-```tsx
+```jsx
 import { Router } from 'react-router-url'
 // and use it in your component
 
@@ -29,7 +40,7 @@ import { Router } from 'react-router-url'
 # Core
 
 The core concept is base on `history` object and `useURL` hook.
-If you don't need compoenents but only `url` tool, you can use `react-hook-url` wich is the same package without components.
+If you don't need compoenents but only `url` tool, you can use [react-hook-url](https://github.com/simonboisset/react-hook-url) wich is the same package without components.
 
 ## history
 
@@ -43,19 +54,19 @@ inputs :
 - params: if you need it you can add object with params
 
 exemple :
-```ts
+```js
 history.push('/login')}
 history.push('/account', { user: 'joe' })}
 ```
 
 ### goBack
 
-```ts
+```js
 history.goBack()
 ```
 ### canGoBack
 
-```ts
+```js
 if(history.canGoBack()){
     history.goBack()
 }
@@ -64,7 +75,7 @@ if(history.canGoBack()){
 ## useURL
 It's a hook for react component, watching path and params.
 
-```ts
+```js
 export const Account = () => {
   const { path ,params} = useURL();
   return(
@@ -86,7 +97,7 @@ It will render the first compoenent which is mathing with the current path.
 You can add subroutes in every routes. The router will test the subroutes before the parents.
 If a route need authentication you can add the `auth` props in router and `protected:true` to the route.
 
-```tsx
+```jsx
 <Page>
     <Router auth={auth} routes={[
     { path: '/account',protected:true, component: <Acount/> },
@@ -107,6 +118,6 @@ If a route need authentication you can add the `auth` props in router and `prote
 
 This component will redirect to his `to` props when he is rendering
 
-```tsx
+```jsx
 <Redirect to="/" />
 ```
