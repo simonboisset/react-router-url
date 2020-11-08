@@ -45,7 +45,7 @@
   "bugs": {
     "url": "https://github.com/simonboisset/react-router-url/issues"
   },
-  "homepage": "https://github.com/simonboisset/react-router-url/react-router-url",
+  "homepage": "https://github.com/simonboisset/react-router-url/tree/main/react-router-url",
   "size-limit": [
     {
       "path": "dist/react-router-url.cjs.production.min.js",
