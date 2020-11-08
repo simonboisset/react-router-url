@@ -1,7 +1,6 @@
 export const history = {
   push: (nextUrl: string, params?: { [key: string]: string }) => {
     const url = new URL(window.location.origin + nextUrl);
-    console.log(url.href);
     if (params) {
       for (const key in params) {
         url.searchParams.set(key, params[key]);
