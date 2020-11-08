@@ -19,8 +19,8 @@ jobs:
           yarn
           yarn version --new-version patch --no-git-tag-version
           yarn publish
-          git config --local user.email "secrets.GIT_EMAIL"
-          git config --local user.name "secrets.GIT_NAME"
+          git config --local user.email "simonboisset.dev@gmail.com"
+          git config --local user.name "simonboisset"
           git add .
           git commit -m "New version"
           git push
