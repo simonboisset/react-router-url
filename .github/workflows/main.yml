@@ -12,7 +12,45 @@ jobs:
           node-version: '14'
           registry-url: https://registry.npmjs.org/
       - name: Publish New Version
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '[major]')
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: |
+          cd react-router-url
+          yarn
+          yarn version --new-version patch --no-git-tag-version
+          yarn publish
+          cd ../react-hook-url
+          yarn
+          yarn version --new-version patch --no-git-tag-version
+          yarn publish
+          cd ..
+          git config --local user.email "simonboisset.dev@gmail.com"
+          git config --local user.name "simonboisset"
+          git add .
+          git commit -m "New version"
+          git push
+      - name: Publish New Version
+        if: github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '[minor]')
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: |
+          cd react-router-url
+          yarn
+          yarn version --new-version patch --no-git-tag-version
+          yarn publish
+          cd ../react-hook-url
+          yarn
+          yarn version --new-version patch --no-git-tag-version
+          yarn publish
+          cd ..
+          git config --local user.email "simonboisset.dev@gmail.com"
+          git config --local user.name "simonboisset"
+          git add .
+          git commit -m "New version"
+          git push
+      - name: Publish New Version
+        if: github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
