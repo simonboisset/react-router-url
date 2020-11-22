@@ -3,4 +3,5 @@ export type Route = {
   component: JSX.Element;
   routes?: Route[];
   protected?: boolean;
+  exact?: boolean;
 };
