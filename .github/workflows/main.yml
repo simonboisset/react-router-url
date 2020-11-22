@@ -37,6 +37,17 @@ jobs:
           git add .
           git commit -m "New react-hook-url major version"
           git push
+      - name: Checkout dev
+        if: steps.changed-hook.outputs.changed == 'true'
+        uses: actions/checkout@v2
+        with:
+          ref: 'dev'
+          fetch-depth: '0'
+      - name: Rebase Dev
+        if: steps.changed-hook.outputs.changed == 'true'
+        run: |
+          git rebase remotes/origin/main
+          git push
   publish-major-react-router-url:
     if: contains(github.event.head_commit.message, '[major]')
     runs-on: ubuntu-latest
@@ -69,6 +80,17 @@ jobs:
           git config --local user.name "simonboisset"
           git add .
           git commit -m "New react-router-url major version"
+          git push
+      - name: Checkout dev
+        if: steps.changed-router.outputs.changed == 'true'
+        uses: actions/checkout@v2
+        with:
+          ref: 'dev'
+          fetch-depth: '0'
+      - name: Rebase Dev
+        if: steps.changed-router.outputs.changed == 'true'
+        run: |
+          git rebase remotes/origin/main
           git push
   publish-minor-react-hook-url:
     if: contains(github.event.head_commit.message, '[minor]')
@@ -103,6 +125,17 @@ jobs:
           git add .
           git commit -m "New react-hook-url minor version"
           git push
+      - name: Checkout dev
+        if: steps.changed-hook.outputs.changed == 'true'
+        uses: actions/checkout@v2
+        with:
+          ref: 'dev'
+          fetch-depth: '0'
+      - name: Rebase Dev
+        if: steps.changed-hook.outputs.changed == 'true'
+        run: |
+          git rebase remotes/origin/main
+          git push
   publish-minor-react-router-url:
     if: contains(github.event.head_commit.message, '[minor]')
     runs-on: ubuntu-latest
@@ -135,6 +168,17 @@ jobs:
           git config --local user.name "simonboisset"
           git add .
           git commit -m "New react-router-url minor version"
+          git push
+      - name: Checkout dev
+        if: steps.changed-router.outputs.changed == 'true'
+        uses: actions/checkout@v2
+        with:
+          ref: 'dev'
+          fetch-depth: '0'
+      - name: Rebase Dev
+        if: steps.changed-router.outputs.changed == 'true'
+        run: |
+          git rebase remotes/origin/main
           git push
   publish-patch-react-hook-url:
     if: ${{!contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')}}
@@ -169,6 +213,17 @@ jobs:
           git add .
           git commit -m "New react-hook-url patch version"
           git push
+      - name: Checkout dev
+        if: steps.changed-hook.outputs.changed == 'true'
+        uses: actions/checkout@v2
+        with:
+          ref: 'dev'
+          fetch-depth: '0'
+      - name: Rebase Dev
+        if: steps.changed-hook.outputs.changed == 'true'
+        run: |
+          git rebase remotes/origin/main
+          git push
   publish-patch-react-router-url:
     if: ${{!contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')}}
     runs-on: ubuntu-latest
@@ -202,25 +257,14 @@ jobs:
           git add .
           git commit -m "New react-router-url patch version"
           git push
-  rebase:
-    needs: [
-      publish-major-react-hook-url,
-      publish-minor-react-hook-url,
-      publish-patch-react-hook-url,
-      publish-major-react-router-url,
-      publish-minor-react-router-url,
-      publish-patch-react-router-url,
-    ]
-    runs-on: ubuntu-latest
-    steps:
       - name: Checkout dev
+        if: steps.changed-router.outputs.changed == 'true'
         uses: actions/checkout@v2
         with:
           ref: 'dev'
+          fetch-depth: '0'
       - name: Rebase Dev
+        if: steps.changed-router.outputs.changed == 'true'
         run: |
-          git config --local user.email "simonboisset.dev@gmail.com"
-          git config --local user.name "simonboisset"
-          git pull origin master
-          git rebase remotes/origin/master
+          git rebase remotes/origin/main
           git push
