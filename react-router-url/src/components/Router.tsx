@@ -10,11 +10,11 @@ type RouterProps = {
 export const Router: React.FC<RouterProps> = ({ routes, auth }) => {
   const { path } = useURL();
 
-  const rendredRoute = (testedRoutes: Route[]): JSX.Element | null => {
+  const renderedRoute = (testedRoutes: Route[]): JSX.Element | null => {
     for (const route of testedRoutes) {
       if (path.includes(route.path) && !(route.protected && !auth)) {
         if (!!route.routes) {
-          const subrenderedRoute = rendredRoute(route.routes);
+          const subrenderedRoute = renderedRoute(route.routes);
           if (subrenderedRoute) {
             return subrenderedRoute;
           }
@@ -27,5 +27,5 @@ export const Router: React.FC<RouterProps> = ({ routes, auth }) => {
     return null;
   };
 
-  return rendredRoute(routes);
+  return renderedRoute(routes);
 };
