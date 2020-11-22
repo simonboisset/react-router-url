@@ -113,7 +113,6 @@ If a route need authentication you can add the `auth` props in router and `prote
       { path: '/account', protected: true, component: <Acount /> },
       {
         path: '/',
-        exact: true,
         component: <Redirect to="/home" />,
         routes: [
           { path: '/home', component: <Home /> },
