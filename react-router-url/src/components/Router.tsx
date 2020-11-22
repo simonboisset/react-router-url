@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route } from '../types/Route';
-import { history } from '../utils/history';
 import { useURL } from '../utils/useURL';
 
 type RouterProps = {
@@ -20,11 +19,9 @@ export const Router: React.FC<RouterProps> = ({ routes, auth }) => {
             return subrenderedRoute;
           }
         }
-        if (path !== route.path) {
-          history.push(route.path);
-          return null;
+        if (!route.exact || path === route.path) {
+          return route.component;
         }
-        return route.component;
       }
     }
     return null;
