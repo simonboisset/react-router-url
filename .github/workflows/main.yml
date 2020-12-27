@@ -210,6 +210,13 @@ jobs:
           git push
   rebase:
     if: ${{ !failure() }}
+    needs: [
+      publish-patch-react-hook-url,
+      publish-patch-react-router-url,
+      publish-minor-react-hook-url,
+      publish-minor-react-router-url,
+      publish-major-react-hook-url,
+      publish-major-react-router-url]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout dev
