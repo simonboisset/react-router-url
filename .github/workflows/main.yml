@@ -226,6 +226,6 @@ jobs:
         run: |
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
-          git pull origin master
-          git rebase remotes/origin/master
+          git pull origin main
+          git rebase remotes/origin/main
           git push
