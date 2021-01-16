@@ -1,20 +1,17 @@
 {
+  "name": "react-hook-url",
   "version": "0.3.14",
   "license": "MIT",
+  "author": "Simon Boisset",
+  "module": "dist/react-hook-url.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": ">=10"
-  },
   "scripts": {
     "up": "yarn upgrade-interactive --latest",
-    "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
     "write": "yarn prettier --write ./src"
   },
   "peerDependencies": {
@@ -35,9 +32,6 @@
     "tabWidth": 2,
     "printWidth": 120
   },
-  "name": "react-hook-url",
-  "author": "Simon Boisset",
-  "module": "dist/react-hook-url.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/simonboisset/react-router-url",

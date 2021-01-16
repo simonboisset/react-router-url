@@ -9,9 +9,6 @@
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": ">=10"
-  },
   "scripts": {
     "up": "yarn upgrade-interactive --latest",
     "start": "tsdx watch",
@@ -19,6 +16,9 @@
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "write": "yarn prettier --write ./src"
+  },
+  "dependencies": {
+    "react-hook-url": "^0.3.14"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -34,10 +34,9 @@
     "typescript": "^4.1.3"
   },
   "prettier": {
-    "printWidth": 80,
-    "semi": true,
     "singleQuote": true,
-    "trailingComma": "es5"
+    "tabWidth": 2,
+    "printWidth": 120
   },
   "repository": {
     "type": "git",
@@ -47,8 +46,5 @@
   "bugs": {
     "url": "https://github.com/simonboisset/react-router-url/issues"
   },
-  "homepage": "https://github.com/simonboisset/react-router-url/tree/main/react-router-url",
-  "dependencies": {
-    "react-hook-url": "^0.3.14"
-  }
+  "homepage": "https://github.com/simonboisset/react-router-url/tree/main/react-router-url"
 }
