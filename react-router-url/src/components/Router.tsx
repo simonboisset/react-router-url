@@ -1,6 +1,6 @@
 import React from 'react';
+import { useURL } from 'react-hook-url';
 import { Route } from '../types/Route';
-import { useURL } from '../utils/useURL';
 
 type RouterProps = {
   routes: Route[];

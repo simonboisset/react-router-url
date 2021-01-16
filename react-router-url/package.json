@@ -1,7 +1,10 @@
 {
+  "name": "react-router-url",
   "version": "0.3.13",
+  "author": "Simon Boisset",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/react-router-url.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
@@ -10,6 +13,7 @@
     "node": ">=10"
   },
   "scripts": {
+    "up": "yarn upgrade-interactive --latest",
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
@@ -19,15 +23,22 @@
   "peerDependencies": {
     "react": ">=16"
   },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
+  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-router-url",
-  "author": "Simon Boisset",
-  "module": "dist/react-router-url.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/simonboisset/react-router-url",
@@ -37,14 +48,7 @@
     "url": "https://github.com/simonboisset/react-router-url/issues"
   },
   "homepage": "https://github.com/simonboisset/react-router-url/tree/main/react-router-url",
-  "devDependencies": {
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "prettier": "^2.1.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.0.3",
-    "typescript": "^4.0.5"
+  "dependencies": {
+    "react-hook-url": "^0.3.13"
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { history } from '../utils/history';
+import { history } from 'react-hook-url';
 
 export const Redirect: React.FC<{ to: string }> = ({ to }) => {
   React.useEffect(() => {
