@@ -1,6 +1,6 @@
 {
   "name": "react-router-url",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "author": "Simon Boisset",
   "license": "MIT",
   "main": "dist/index.js",
@@ -49,6 +49,6 @@
   },
   "homepage": "https://github.com/simonboisset/react-router-url/tree/main/react-router-url",
   "dependencies": {
-    "react-hook-url": "^0.3.13"
+    "react-hook-url": "^0.3.14"
   }
 }
