@@ -1,6 +1,6 @@
 {
   "name": "react-router-url",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "author": "Simon Boisset",
   "license": "MIT",
   "main": "dist/index.js",
@@ -18,7 +18,7 @@
     "write": "yarn prettier --write ./src"
   },
   "dependencies": {
-    "react-hook-url": "^0.3.14"
+    "react-hook-url": "^0.3.15"
   },
   "peerDependencies": {
     "react": ">=16"

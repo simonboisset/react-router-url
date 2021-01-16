@@ -4757,10 +4757,10 @@ react-dom@^17.0.1:
     object-assign "^4.1.1"
     scheduler "^0.20.1"
 
-react-hook-url@^0.3.14:
-  version "0.3.14"
-  resolved "https://registry.yarnpkg.com/react-hook-url/-/react-hook-url-0.3.14.tgz#34acde04c78bb1d9b5ad619fb775a82f0bea8530"
-  integrity sha512-BM0VdkoBqjYakLKrALMxQHigdRabq5pDuAxASWQo3SA2Cp9mYCTRtafFiuLzErNqY2uoY5ufPMOuTLYsOWN52g==
+react-hook-url@^0.3.15:
+  version "0.3.15"
+  resolved "https://registry.yarnpkg.com/react-hook-url/-/react-hook-url-0.3.15.tgz#65e03c266f10f8689cae9aaa188d8d1ed1b573a1"
+  integrity sha512-RY1q0iWLlaZdmsk39kamGRbcsf6CwB4POr1wZ118Oaqz8BB0TIPn456ABx54c//hLVewC+K+BDwTqH6e+/xdig==
 
 react-is@^16.12.0, react-is@^16.8.1:
   version "16.13.1"
