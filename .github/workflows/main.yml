@@ -52,14 +52,18 @@ jobs:
         id: changed-router
         with:
           paths: react-router-url
+      - uses: marceloprado/has-changed-path@master
+        id: changed-hook
+        with:
+          paths: react-hook-url
       - name: Use Node
-        if: steps.changed-router.outputs.changed == 'true'
+        if: ${{ steps.changed-router.outputs.changed == 'true' || steps.changed-hook.outputs.changed == 'true' }} 
         uses: actions/setup-node@v1
         with:
           node-version: '14'
           registry-url: https://registry.npmjs.org/
       - name: Publish New Major Version
-        if: steps.changed-router.outputs.changed == 'true'
+        if: ${{ steps.changed-router.outputs.changed == 'true' || steps.changed-hook.outputs.changed == 'true' }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
@@ -75,7 +79,7 @@ jobs:
           git pull origin main
           git add .
           git commit -m "New react-router-url major version"
-          git push
+          git push --tags
   publish-minor-react-hook-url:
     if: contains(github.event.head_commit.message, '[minor]')
     runs-on: ubuntu-latest
@@ -124,14 +128,18 @@ jobs:
         id: changed-router
         with:
           paths: react-router-url
+      - uses: marceloprado/has-changed-path@master
+        id: changed-hook
+        with:
+          paths: react-hook-url
       - name: Use Node
-        if: steps.changed-router.outputs.changed == 'true'
+        if: ${{ steps.changed-router.outputs.changed == 'true' || steps.changed-hook.outputs.changed == 'true' }}
         uses: actions/setup-node@v1
         with:
           node-version: '14'
           registry-url: https://registry.npmjs.org/
       - name: Publish New Minor Version
-        if: steps.changed-router.outputs.changed == 'true'
+        if: ${{ steps.changed-router.outputs.changed == 'true' || steps.changed-hook.outputs.changed == 'true' }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
@@ -147,7 +155,7 @@ jobs:
           git pull origin main
           git add .
           git commit -m "New react-router-url minor version"
-          git push
+          git push --tags
   publish-patch-react-hook-url:
     if: ${{!contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')}}
     runs-on: ubuntu-latest
@@ -196,14 +204,18 @@ jobs:
         id: changed-router
         with:
           paths: react-router-url
+      - uses: marceloprado/has-changed-path@master
+        id: changed-hook
+        with:
+          paths: react-hook-url
       - name: Use Node
-        if: steps.changed-router.outputs.changed == 'true'
+        if: ${{ steps.changed-router.outputs.changed == 'true' || steps.changed-hook.outputs.changed == 'true' }}
         uses: actions/setup-node@v1
         with:
           node-version: '14'
           registry-url: https://registry.npmjs.org/
       - name: Publish New Patch Version
-        if: steps.changed-router.outputs.changed == 'true'
+        if: ${{ steps.changed-router.outputs.changed == 'true' || steps.changed-hook.outputs.changed == 'true' }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
@@ -219,4 +231,4 @@ jobs:
           git pull origin main
           git add .
           git commit -m "New react-router-url patch version"
-          git push
+          git push --tags 
