@@ -31,7 +31,7 @@ jobs:
           git config --local user.name "simonboisset"
           cd react-hook-url
           yarn
-          yarn version --new-version major --tag "react-hook-url v%s"
+          yarn version --new-version major --message "react-hook-url v%s"
           yarn build
           yarn publish
           cd ..
@@ -70,7 +70,7 @@ jobs:
           cd react-router-url
           yarn
           yarn add react-hook-url
-          yarn version --new-version major --tag "react-router-url v%s"
+          yarn version --new-version major --message "react-router-url v%s"
           yarn build
           yarn publish
           cd ..
@@ -102,7 +102,7 @@ jobs:
           git config --local user.name "simonboisset"
           cd react-hook-url
           yarn
-          yarn version --new-version minor --tag "react-hook-url v%s"
+          yarn version --new-version minor --message "react-hook-url v%s"
           yarn build
           yarn publish
           cd ..
@@ -141,7 +141,7 @@ jobs:
           cd react-router-url
           yarn
           yarn add react-hook-url
-          yarn version --new-version minor --tag "react-router-url v%s"
+          yarn version --new-version minor --message "react-router-url v%s"
           yarn build
           yarn publish
           cd ..
@@ -173,7 +173,7 @@ jobs:
           git config --local user.name "simonboisset"
           cd react-hook-url
           yarn
-          yarn version --new-version patch --tag "react-hook-url v%s"
+          yarn version --new-version patch --message "react-hook-url v%s"
           yarn build
           yarn publish
           cd ..
@@ -212,7 +212,7 @@ jobs:
           cd react-router-url
           yarn
           yarn add react-hook-url
-          yarn version --new-version patch --tag "react-router-url v%s"
+          yarn version --new-version patch --message "react-router-url v%s"
           yarn build
           yarn publish
           cd ..
