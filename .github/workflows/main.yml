@@ -27,17 +27,14 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
+          git config --local user.email "simonboisset.dev@gmail.com"
+          git config --local user.name "simonboisset"
           cd react-hook-url
           yarn
-          yarn version --new-version major --no-git-tag-version
+          yarn version --new-version major --message "New react-hook-url major version %s"
           yarn build
           yarn publish
           cd ..
-          git config --local user.email "simonboisset.dev@gmail.com"
-          git config --local user.name "simonboisset"
-          git pull origin main
-          git add .
-          git commit -m "New react-hook-url major version"
           git push
   publish-major-react-router-url:
     if: contains(github.event.head_commit.message, '[major]')
@@ -67,18 +64,16 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          cd react-router-url
-          yarn
-          yarn add react-hook-url
-          yarn version --new-version major --no-git-tag-version
-          yarn build
-          yarn publish
-          cd ..
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
           git pull origin main
-          git add .
-          git commit -m "New react-router-url major version"
+          cd react-router-url
+          yarn
+          yarn add react-hook-url
+          yarn version --new-version major --message "New react-router-url major version %s"
+          yarn build
+          yarn publish
+          cd ..
           git push --tags
   publish-minor-react-hook-url:
     if: contains(github.event.head_commit.message, '[minor]')
@@ -103,17 +98,14 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
+          git config --local user.email "simonboisset.dev@gmail.com"
+          git config --local user.name "simonboisset"
           cd react-hook-url
           yarn
-          yarn version --new-version minor --no-git-tag-version
+          yarn version --new-version minor --message "New react-hook-url minor version %s"
           yarn build
           yarn publish
           cd ..
-          git config --local user.email "simonboisset.dev@gmail.com"
-          git config --local user.name "simonboisset"
-          git pull origin main
-          git add .
-          git commit -m "New react-hook-url minor version"
           git push
   publish-minor-react-router-url:
     if: contains(github.event.head_commit.message, '[minor]')
@@ -143,18 +135,16 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          cd react-router-url
-          yarn
-          yarn add react-hook-url
-          yarn version --new-version minor --no-git-tag-version
-          yarn build
-          yarn publish
-          cd ..
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
           git pull origin main
-          git add .
-          git commit -m "New react-router-url minor version"
+          cd react-router-url
+          yarn
+          yarn add react-hook-url
+          yarn version --new-version minor --message "New react-router-url minor version %s"
+          yarn build
+          yarn publish
+          cd ..
           git push --tags
   publish-patch-react-hook-url:
     if: ${{!contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')}}
@@ -179,17 +169,14 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
+          git config --local user.email "simonboisset.dev@gmail.com"
+          git config --local user.name "simonboisset"
           cd react-hook-url
           yarn
-          yarn version --new-version patch --no-git-tag-version
+          yarn version --new-version patch --message "New react-hook-url patch version %s"
           yarn build
           yarn publish
           cd ..
-          git config --local user.email "simonboisset.dev@gmail.com"
-          git config --local user.name "simonboisset"
-          git pull origin main
-          git add .
-          git commit -m "New react-hook-url patch version"
           git push
   publish-patch-react-router-url:
     if: ${{!contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')}}
@@ -219,16 +206,14 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          cd react-router-url
-          yarn
-          yarn add react-hook-url
-          yarn version --new-version patch --no-git-tag-version
-          yarn build
-          yarn publish
-          cd ..
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
           git pull origin main
-          git add .
-          git commit -m "New react-router-url patch version"
-          git push --tags 
+          cd react-router-url
+          yarn
+          yarn add react-hook-url
+          yarn version --new-version patch --message "New react-router-url patch version %s"
+          yarn build
+          yarn publish
+          cd ..
+          git push
