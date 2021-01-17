@@ -31,7 +31,7 @@ jobs:
           git config --local user.name "simonboisset"
           cd react-hook-url
           yarn
-          yarn version --new-version major --message "New react-hook-url major version %s"
+          yarn version --new-version major --tag "react-hook-url v%s"
           yarn build
           yarn publish
           cd ..
@@ -70,11 +70,11 @@ jobs:
           cd react-router-url
           yarn
           yarn add react-hook-url
-          yarn version --new-version major --message "New react-router-url major version %s"
+          yarn version --new-version major --tag "react-router-url v%s"
           yarn build
           yarn publish
           cd ..
-          git push --tags
+          git push
   publish-minor-react-hook-url:
     if: contains(github.event.head_commit.message, '[minor]')
     runs-on: ubuntu-latest
@@ -102,7 +102,7 @@ jobs:
           git config --local user.name "simonboisset"
           cd react-hook-url
           yarn
-          yarn version --new-version minor --message "New react-hook-url minor version %s"
+          yarn version --new-version minor --tag "react-hook-url v%s"
           yarn build
           yarn publish
           cd ..
@@ -141,11 +141,11 @@ jobs:
           cd react-router-url
           yarn
           yarn add react-hook-url
-          yarn version --new-version minor --message "New react-router-url minor version %s"
+          yarn version --new-version minor --tag "react-router-url v%s"
           yarn build
           yarn publish
           cd ..
-          git push --tags
+          git push
   publish-patch-react-hook-url:
     if: ${{!contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')}}
     runs-on: ubuntu-latest
@@ -173,7 +173,7 @@ jobs:
           git config --local user.name "simonboisset"
           cd react-hook-url
           yarn
-          yarn version --new-version patch --message "New react-hook-url patch version %s"
+          yarn version --new-version patch --tag "react-hook-url v%s"
           yarn build
           yarn publish
           cd ..
@@ -212,7 +212,7 @@ jobs:
           cd react-router-url
           yarn
           yarn add react-hook-url
-          yarn version --new-version patch --message "New react-router-url patch version %s"
+          yarn version --new-version patch --tag "react-router-url v%s"
           yarn build
           yarn publish
           cd ..
