@@ -1,6 +1,6 @@
 {
   "name": "react-hook-url",
-  "version": "0.3.19",
+  "version": "0.3.20",
   "license": "MIT",
   "author": "Simon Boisset",
   "module": "dist/react-hook-url.esm.js",
