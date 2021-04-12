@@ -1,0 +1,19 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "i": "lerna bootstrap",
+    "build": "lerna run build",
+    "start": "lerna run start",
+    "changed": "lerna changed",
+    "clean": "lerna clean"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}
