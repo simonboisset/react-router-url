@@ -21,4 +21,5 @@ jobs:
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
           yarn
+          yarn build
           lerna publish patch --yes --no-verify-access
