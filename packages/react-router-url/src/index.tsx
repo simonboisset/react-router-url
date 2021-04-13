@@ -1,5 +1,5 @@
-import { history, useURL } from 'react-hook-url';
+import { history, location, useURL } from 'react-hook-url';
 export * from './components/Redirect';
 export * from './components/Router';
 export * from './types/Route';
-export { useURL, history };
+export { useURL, history, location };
