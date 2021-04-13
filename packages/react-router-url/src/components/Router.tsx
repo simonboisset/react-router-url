@@ -7,10 +7,10 @@ type RouterProps = {
   auth?: boolean;
 };
 
-export const Router: React.FC<RouterProps> = ({ routes, auth }) => {
+export const Router = ({ routes, auth }: RouterProps) => {
   const { path } = useURL();
 
-  const renderedRoute = (testedRoutes: Route[]): JSX.Element | null => {
+  const renderedRoute = (testedRoutes: Route[]): React.ReactNode | null => {
     for (const route of testedRoutes) {
       if (path.includes(route.path) && !(route.protected && !auth)) {
         if (!!route.routes) {
