@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React from 'react';
 import { useURL } from 'react-hook-url';
 import { Route } from '../types/Route';
 
@@ -10,7 +10,7 @@ type RouterProps = {
 export const Router = ({ routes, auth }: RouterProps) => {
   const { path } = useURL();
 
-  const renderedRoute = (testedRoutes: Route[]): ReactNode | null => {
+  const renderedRoute = (testedRoutes: Route[]): React.ReactNode | null => {
     for (const route of testedRoutes) {
       if (path.includes(route.path) && !(route.protected && !auth)) {
         if (!!route.routes) {
@@ -27,5 +27,5 @@ export const Router = ({ routes, auth }: RouterProps) => {
     return null;
   };
 
-  return renderedRoute(routes);
+  return <>{renderedRoute(routes)}</>;
 };
