@@ -1,4 +1,5 @@
 import React from 'react';
+import { location } from '../utils/location';
 
 export const useURL = () => {
   const [url, setUrl] = React.useState(new URL(window.location.href));
@@ -13,8 +14,9 @@ export const useURL = () => {
       window.removeEventListener('popstate', handleChangeURL);
     };
   }, []);
-  const path = url.pathname;
-  const origin = url.origin;
+
+  const origin = location.origin;
+  const path = `/${url.href.split(origin)[1]}`;
   let params: { [key: string]: string | null } = {};
   const paramsList = url.search
     .slice(1)

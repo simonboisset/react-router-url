@@ -46,5 +46,5 @@
   "bugs": {
     "url": "https://github.com/simonboisset/react-router-url/issues"
   },
-  "homepage": "https://github.com/simonboisset/react-router-url/tree/main/react-router-url"
+  "homepage": "https://github.com/simonboisset/react-router-url/tree/main/packages/react-router-url"
 }
