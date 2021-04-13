@@ -1,6 +1,8 @@
+import { ReactNode } from 'react';
+
 export type Route = {
   path: string;
-  component: JSX.Element;
+  component: ReactNode;
   routes?: Route[];
   protected?: boolean;
   exact?: boolean;
