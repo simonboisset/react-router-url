@@ -1,6 +1,6 @@
 export type Route = {
   path: string;
-  component: React.ReactNode;
+  component: JSX.Element;
   routes?: Route[];
   protected?: boolean;
   exact?: boolean;
