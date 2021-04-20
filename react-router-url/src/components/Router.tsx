@@ -4,15 +4,14 @@ import { Route } from '../types/Route';
 
 type RouterProps = {
   routes: Route[];
-  auth?: boolean;
 };
 
-export const Router: React.FC<RouterProps> = ({ routes, auth }) => {
+export const Router: React.FC<RouterProps> = ({ routes }) => {
   const { path } = useURL();
 
   const renderedRoute = (testedRoutes: Route[]): JSX.Element | null => {
     for (const route of testedRoutes) {
-      if (path.includes(route.path) && !(route.protected && !auth)) {
+      if (path.includes(route.path)) {
         if (!!route.routes) {
           const subrenderedRoute = renderedRoute(route.routes);
           if (subrenderedRoute) {
