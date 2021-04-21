@@ -1,0 +1,47 @@
+{
+  "name": "react-router-url",
+  "version": "0.6.1",
+  "author": "Simon Boisset",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/react-router-url.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "up": "yarn upgrade-interactive --latest",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "write": "yarn prettier --write ./src"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2,
+    "printWidth": 120
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simonboisset/react-router-url",
+    "directory": "react-router-url"
+  },
+  "bugs": {
+    "url": "https://github.com/simonboisset/react-router-url/issues"
+  },
+  "homepage": "https://github.com/simonboisset/react-router-url"
+}
