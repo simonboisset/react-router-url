@@ -1,9 +1,10 @@
 # React Router URL
 
-A simple, flexible and zero dependencies router for react.
+Update v0.7.0
 
-It uses hooks and URL api.
-I use [TSDX](https://tsdx.io/) for packaging.
+A simple, flexible and zero dependencies router for React and Typescript support.
+
+It uses React hooks and URL api.
 
 # Table of Contents
 
@@ -24,19 +25,23 @@ yarn add react-router-url
 
 # Get Started
 
-Just use the Router component where you want.
+## Define your router
+
+You can define your route names then use the hook `useRouter` to right your routes
 
 ```jsx
-import { Router } from 'react-router-url';
-// and use it in your component
+type RouteName = '/' | '/home' | '/account';
 
-<Router
-  routes={[
-    { path: '/hello', component: <div>Hello</div> },
-    { path: '/', component: <div>Home</div> },
-  ]}
-/>;
+export const Router: React.FC = () => {
+  return useRouter<RouteName>([...]);
+};
 ```
+
+After that you can use your Router component where you want.
+
+## About useRouter
+
+You can use it to create Router componant every where. It's supported for nested router too.
 
 # Core
 
@@ -94,50 +99,10 @@ export const Account = () => {
 
 # Components
 
-These components are using the core utils to make a router.
-
-## Router
-
-The main compoenent.
-It will render the first compoenent which is mathing with the current path.
-
-You can add subroutes in every routes. The router will test the subroutes before the parents.
-If a route need authentication you can add the `auth` props in router and `protected:true` to the route.
-
-```jsx
-<Page>
-  <Router
-    auth={auth}
-    routes={[
-      { path: '/account', protected: true, component: <Acount /> },
-      {
-        path: '/',
-        component: <Redirect to="/home" />,
-        routes: [
-          { path: '/home', component: <Home /> },
-          { path: '/aboutus', component: <About /> },
-          { path: '/contact', component: <Contact /> },
-        ],
-      },
-    ]}
-  />
-</Page>
-```
-
 ## Redirect
 
 This component will redirect to his `to` props when he is rendering
 
 ```jsx
 <Redirect to="/" />
-```
-
-## Define your router
-
-```ts
-type RouteName = '/' | '/home' | '/account';
-
-export const Router: React.FC = () => {
-  return useRouter<RouteName>([...]);
-};
 ```
