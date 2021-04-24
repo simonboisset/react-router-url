@@ -1,10 +1,11 @@
+import { useCallback } from 'react';
 import { Route } from '../types/Route';
 import { useURL } from './useURL';
 
 export const useRouter = <T extends string>(routes: Route<T>[]) => {
   const { path } = useURL();
 
-  const renderedRoute = (): JSX.Element | null => {
+  const renderedRoute = useCallback((): JSX.Element | null => {
     for (const route of routes) {
       if (path.includes(route.path)) {
         if (!route.exact || path === route.path) {
@@ -13,6 +14,6 @@ export const useRouter = <T extends string>(routes: Route<T>[]) => {
       }
     }
     return null;
-  };
+  }, [path, routes]);
   return renderedRoute();
 };
