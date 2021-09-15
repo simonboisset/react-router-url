@@ -1,6 +1,6 @@
 {
   "name": "react-router-url",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "author": "Simon Boisset",
   "license": "MIT",
   "main": "dist/index.js",
