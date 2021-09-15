@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 export const useURL = () => {
-  const [url, setUrl] = React.useState(new URL(window.location.href));
+  const [url, setUrl] = useState(new URL(window.location.href));
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleChangeURL = () => {
       setUrl(new URL(window.location.href));
     };
@@ -13,8 +13,11 @@ export const useURL = () => {
       window.removeEventListener('popstate', handleChangeURL);
     };
   }, []);
+
   const path = useMemo(() => url.pathname, [url.pathname]);
+
   const origin = useMemo(() => url.origin, [url.origin]);
+
   const params = useMemo(() => {
     let params: { [key: string]: string | null } = {};
     const paramsList = url.search

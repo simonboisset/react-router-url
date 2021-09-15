@@ -29,11 +29,24 @@ yarn add react-router-url
 
 You can define your route names then use the hook `useRouter` to right your routes
 
-```jsx
+```tsx
+type NestedRouteName = '/account' | '/account/settings' | '/account/contact';
+const Account: React.FC = () => {
+  return useRouter<RouteName>([
+    { path: '/account/settings', component: <Settings /> },
+    { path: '/account/contact', component: <Contact /> },
+    { path: '/account', component: <AccountMenu /> },
+  ]);
+};
+
 type RouteName = '/' | '/home' | '/account';
 
-export const Router: React.FC = () => {
-  return useRouter<RouteName>([...]);
+const Router: React.FC = () => {
+  return useRouter<RouteName>([
+    { path: '/', component: <Hello />, exact: true },
+    { path: '/home', component: <Home /> },
+    { path: '/account', component: <Account /> },
+  ]);
 };
 ```
 
