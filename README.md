@@ -2,7 +2,7 @@
 
 A simple, flexible and zero dependencies router for React and Typescript support.
 
-Update v0.7.0
+Update v0.7.6
 
 It uses React hooks and URL api.
 
