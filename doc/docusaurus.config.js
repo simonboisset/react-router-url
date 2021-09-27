@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   module.exports = {
     title: 'react-router-url',
     tagline: 'Lighter React Router',
-    url: 'react-router-url.simonboisset.com',
+    url: 'https://react-router-url.simonboisset.com',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
@@ -23,12 +23,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docs: {
             sidebarPath: require.resolve('./sidebars.js'),
             // Please change this to your repo.
-            editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+            editUrl: 'https://github.com/simonboisset/react-router-url/doc',
           },
           blog: {
             showReadingTime: true,
             // Please change this to your repo.
-            editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+            editUrl: 'https://github.com/simonboisset/react-router-url/doc/blog/',
           },
           theme: {
             customCss: require.resolve('./src/css/custom.css'),
@@ -79,7 +79,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             //   ],
             // },
             {
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/simonboisset/react-router-url',
               label: 'GitHub',
               position: 'right',
             },
