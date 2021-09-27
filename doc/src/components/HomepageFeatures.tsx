@@ -16,34 +16,23 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Think in react',
+    image: '/img/logo.svg',
+    description: <>We are using react hooks and URL api</>,
+  },
+  {
+    title: 'Nested Router',
     image: '/img/logo.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and used to get your website up and running
-        quickly.
+        You can use hooks has nested router in <code>route</code> children
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '< 2kB',
     image: '/img/logo.svg',
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go ahead and move your docs into the{' '}
-        <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    image: '/img/logo.svg',
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the same
-        header and footer.
-      </>
-    ),
+    description: <>Bundle size : 1.2kB and zero dependency</>,
   },
 ];
 

@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# # Redirect
+# Redirect
 
 This component will redirect to his `to` props when he is rendering
 
