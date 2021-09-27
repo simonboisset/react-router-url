@@ -1,11 +1,14 @@
 name: CD Main
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'major | minor | patch'
+        required: true
+        default: 'patch'
 jobs:
-  publish-major-react-router-url:
-    if: contains(github.event.head_commit.message, '[major]')
+  major-version:
+    if: ${{ github.event.inputs.release != 'major'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -24,13 +27,14 @@ jobs:
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
           git pull origin main
+          cd package
           yarn
           yarn version --new-version major --message "react-router-url v%s"
           yarn build
           yarn publish
           git push
-  publish-minor-react-router-url:
-    if: contains(github.event.head_commit.message, '[minor]')
+  minor-version:
+    if: ${{ github.event.inputs.release != 'minor'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -49,13 +53,14 @@ jobs:
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
           git pull origin main
+          cd package
           yarn
           yarn version --new-version minor --message "react-router-url v%s"
           yarn build
           yarn publish
-          git push  
-  publish-patch-react-router-url:
-    if: ${{!contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')}}
+          git push
+  patch-version:
+    if: ${{ github.event.inputs.release != 'patch'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -74,6 +79,7 @@ jobs:
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
           git pull origin main
+          cd package
           yarn
           yarn version --new-version patch --message "react-router-url v%s"
           yarn build
