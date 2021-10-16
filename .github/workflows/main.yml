@@ -8,7 +8,7 @@ on:
         default: 'patch'
 jobs:
   major-version:
-    if: ${{ github.event.inputs.release != 'major'}}
+    if: ${{ github.event.inputs.release == 'major'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -34,7 +34,7 @@ jobs:
           yarn publish
           git push
   minor-version:
-    if: ${{ github.event.inputs.release != 'minor'}}
+    if: ${{ github.event.inputs.release == 'minor'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -60,7 +60,7 @@ jobs:
           yarn publish
           git push
   patch-version:
-    if: ${{ github.event.inputs.release != 'patch'}}
+    if: ${{ github.event.inputs.release == 'patch'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main

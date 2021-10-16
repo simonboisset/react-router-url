@@ -1,8 +1,9 @@
 {
-  "include": ["src", "types"],
+  "include": ["src"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
+    "outDir": "dist",
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
@@ -17,6 +18,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "emitDeclarationOnly": true,
+    "useUnknownInCatchVariables": false
   }
 }
